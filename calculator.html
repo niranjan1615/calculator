@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: #e0fbfc;
+    }
+    #container{
+        background-color: #ee6c4d;
+        width: 300px;
+        height: 460px;
+        margin: 100px auto;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+    input{
+        width: 348px;
+        padding: 20px 10px;
+        font-size: 30px;
+        outline: none;
+        border: none;
+        background-color: black;
+        color: white;
+        border-bottom: 1px solid white;
+    }
+    #result{
+        width: 100%;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align-last: right;
+    }
+    button {
+        border: none;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        text-align: center;
+        border-radius: 50px;
+        color: black;
+        border-radius: 16px;
+    }
+    .row-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 20px;
+    }
+    .Neo-hover:hover{
+        background-color: aqua;
+    }
+    #display-result{
+        width: 245px;
+        margin-left: 28px;
+        background: cadetblue;
+    }
+    #Neo{
+        background: cadetblue;
+    }
+
+</style>
+<body>
+    <div id="container">
+        <input type="text" id="result" value="">
+        <div class="button-box">
+            <div class="row-button">
+                <button value="1" onclick="display('1')">1</button>
+                <button value="2" onclick="display('2')">2</button>
+                <button value="3" onclick="display('3')">3</button>
+                <button id="Neo" value="+" onclick="display('+')">+</button>
+             </div>
+            <div class="row-button">
+                <button value="4" onclick="display('4')">4</button>
+                <button value="5" onclick="display('5')">5</button>
+                <button value="6" onclick="display('6')">6</button>
+                <button id="Neo" value="-" onclick="display('-')">-</button>
+            </div>
+            <div class="row-button">
+                <button value="7" onclick="display('7')">7</button>
+                <button value="8" onclick="display('8')">8</button>
+                <button value="9" onclick="display('9')">9</button>
+                <button id="Neo" value="*" onclick="display('*')">*</button>
+            </div>
+            <div class="row-button">
+                <button value="0" onclick="display('0')">0</button>
+                <button value="." onclick="display('.')">.</button>
+                <button value="/" onclick="display('/')">/</button>
+                <button id="Neo" onclick="clearr()" value="c">C</button>
+            </div>
+            <button id="display-result" onclick="show()">Result</button>
+        </div>
+    </div>
+    <script>
+        let display = (val) => {
+            document.getElementById("result").value += val;
+            return val;
+        }
+        let show = () => {
+            let x = document.getElementById('result').value;
+            let y = eval(x);
+            document.getElementById('result').value = y;
+            return y;
+        }
+        function clearr() {
+            document.getElementById("result").value = "";
+        }
+    </script>
+</body>
+</html>
